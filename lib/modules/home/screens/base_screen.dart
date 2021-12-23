@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:enterprise_flutter/modules/shared/articles_theme.dart';
 import 'package:enterprise_flutter/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -11,7 +12,10 @@ class BaseScreen extends StatelessWidget {
     return AutoTabsScaffold(
       appBarBuilder: (context, tabsRouter) {
         return AppBar(
-          title: const Text('Articles App'),
+          title: Text(
+            'Articles App',
+            style: ArticlesTheme.dark().textTheme.subtitle1,
+          ),
           leading: const AutoBackButton(),
         );
       },
@@ -21,8 +25,15 @@ class BaseScreen extends StatelessWidget {
         SettingsRoute(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
+        final buttonStyle = ArticlesTheme.dark()
+            .textTheme
+            .button
+            ?.copyWith(color: ArticlesTheme.dark().primaryColor);
+
         return SafeArea(
           child: SalomonBottomBar(
+            selectedItemColor:
+                ArticlesTheme.dark().bottomNavigationBarTheme.selectedItemColor,
             currentIndex: tabsRouter.activeIndex,
             onTap: tabsRouter.setActiveIndex,
             items: [
@@ -31,21 +42,30 @@ class BaseScreen extends StatelessWidget {
                   Icons.explore,
                   size: 30,
                 ),
-                title: const Text('Explore'),
+                title: Text(
+                  'Explore',
+                  style: buttonStyle,
+                ),
               ),
               SalomonBottomBarItem(
                 icon: const Icon(
                   Icons.article,
                   size: 30,
                 ),
-                title: const Text('Articles'),
+                title: Text(
+                  'Articles',
+                  style: buttonStyle,
+                ),
               ),
               SalomonBottomBarItem(
                 icon: const Icon(
                   Icons.settings,
                   size: 30,
                 ),
-                title: const Text('Settings'),
+                title: Text(
+                  'Settings',
+                  style: buttonStyle,
+                ),
               ),
             ],
           ),

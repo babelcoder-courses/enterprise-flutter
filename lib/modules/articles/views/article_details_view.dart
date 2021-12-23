@@ -1,6 +1,7 @@
 import 'package:enterprise_flutter/modules/articles/article_api.dart';
 import 'package:enterprise_flutter/modules/articles/models/article_item.dart';
 import 'package:enterprise_flutter/modules/articles/views/author_view.dart';
+import 'package:enterprise_flutter/modules/shared/articles_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -38,19 +39,21 @@ class ArticleDetailsView extends StatelessWidget {
                       children: [
                         Text(
                           article.title,
-                          style: const TextStyle(
-                            fontSize: 20,
-                          ),
+                          style: ArticlesTheme.dark().textTheme.headline2,
                         ),
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Chip(
                             label: Text(
                               article.category.name,
+                              style: ArticlesTheme.dark().textTheme.caption,
                             ),
                           ),
                         ),
-                        Text(article.body),
+                        Text(
+                          article.body,
+                          style: ArticlesTheme.dark().textTheme.bodyText1,
+                        ),
                         const SizedBox(
                           height: 10,
                         ),

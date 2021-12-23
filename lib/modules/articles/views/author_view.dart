@@ -1,3 +1,4 @@
+import 'package:enterprise_flutter/modules/shared/articles_theme.dart';
 import 'package:enterprise_flutter/modules/users/models/user_item.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class AuthorView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.amber[200],
+        color: ArticlesTheme.dark().primaryColor,
         borderRadius: BorderRadius.circular(30),
       ),
       child: Padding(
@@ -28,8 +29,14 @@ class AuthorView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(author.name),
-                    const Text('Creator of this article'),
+                    Text(
+                      author.name,
+                      style: ArticlesTheme.dark().textTheme.caption,
+                    ),
+                    Text(
+                      'Creator of this article',
+                      style: ArticlesTheme.dark().textTheme.bodyText1,
+                    ),
                   ],
                 ),
               ),
