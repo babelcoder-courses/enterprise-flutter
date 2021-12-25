@@ -3,6 +3,8 @@ import 'package:enterprise_flutter/modules/settings/providers/settings_provider.
 import 'package:enterprise_flutter/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -36,6 +38,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Articles',
       theme: context.watch<SettingsProvider>().theme,
+      localizationsDelegates: const [
+        FormBuilderLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''),
+      ],
       routeInformationParser: _appRouter.defaultRouteParser(),
       routerDelegate: _appRouter.delegate(),
     );

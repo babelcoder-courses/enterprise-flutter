@@ -15,6 +15,12 @@ class BaseScreen extends StatelessWidget {
             'Articles App',
           ),
           leading: const AutoBackButton(),
+          actions: [
+            IconButton(
+              onPressed: () => context.router.navigateNamed('/auth'),
+              icon: const Icon(Icons.person),
+            ),
+          ],
           centerTitle: true,
         );
       },
