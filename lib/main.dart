@@ -3,10 +3,13 @@ import 'package:enterprise_flutter/modules/settings/providers/settings_provider.
 import 'package:enterprise_flutter/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
+  await Hive.initFlutter();
+  await Hive.openBox('settings');
 
   runApp(
     MultiProvider(

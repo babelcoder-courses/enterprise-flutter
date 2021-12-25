@@ -9,16 +9,17 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:flutter/material.dart' as _i7;
+import 'package:flutter/material.dart' as _i8;
 
-import '../modules/articles/screens/article_details_screen.dart' as _i6;
+import '../modules/articles/screens/article_details_screen.dart' as _i7;
 import '../modules/articles/screens/article_list_screen.dart' as _i5;
+import '../modules/articles/screens/favorite_articles_screen.dart' as _i6;
 import '../modules/explore/screens/explore.dart' as _i2;
 import '../modules/home/screens/base_screen.dart' as _i1;
 import '../modules/settings/screens/settings_screen.dart' as _i4;
 
 class AppRouter extends _i3.RootStackRouter {
-  AppRouter([_i7.GlobalKey<_i7.NavigatorState>? navigatorKey])
+  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
@@ -43,13 +44,17 @@ class AppRouter extends _i3.RootStackRouter {
       return _i3.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i5.ArticleListScreen());
     },
+    FavoriteArticlesRoute.name: (routeData) {
+      return _i3.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i6.FavoriteArticlesScreen());
+    },
     ArticleDetailsRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<ArticleDetailsRouteArgs>(
           orElse: () => ArticleDetailsRouteArgs(id: pathParams.getInt('id')));
       return _i3.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i6.ArticleDetailsScreen(key: args.key, id: args.id));
+          child: _i7.ArticleDetailsScreen(key: args.key, id: args.id));
     }
   };
 
@@ -64,6 +69,8 @@ class AppRouter extends _i3.RootStackRouter {
               children: [
                 _i3.RouteConfig(ArticleListRoute.name,
                     path: '', parent: ArticlesRoutes.name),
+                _i3.RouteConfig(FavoriteArticlesRoute.name,
+                    path: 'favorite', parent: ArticlesRoutes.name),
                 _i3.RouteConfig(ArticleDetailsRoute.name,
                     path: ':id', parent: ArticlesRoutes.name)
               ]),
@@ -116,9 +123,18 @@ class ArticleListRoute extends _i3.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.ArticleDetailsScreen]
+/// [_i6.FavoriteArticlesScreen]
+class FavoriteArticlesRoute extends _i3.PageRouteInfo<void> {
+  const FavoriteArticlesRoute()
+      : super(FavoriteArticlesRoute.name, path: 'favorite');
+
+  static const String name = 'FavoriteArticlesRoute';
+}
+
+/// generated route for
+/// [_i7.ArticleDetailsScreen]
 class ArticleDetailsRoute extends _i3.PageRouteInfo<ArticleDetailsRouteArgs> {
-  ArticleDetailsRoute({_i7.Key? key, required int id})
+  ArticleDetailsRoute({_i8.Key? key, required int id})
       : super(ArticleDetailsRoute.name,
             path: ':id',
             args: ArticleDetailsRouteArgs(key: key, id: id),
@@ -130,7 +146,7 @@ class ArticleDetailsRoute extends _i3.PageRouteInfo<ArticleDetailsRouteArgs> {
 class ArticleDetailsRouteArgs {
   const ArticleDetailsRouteArgs({this.key, required this.id});
 
-  final _i7.Key? key;
+  final _i8.Key? key;
 
   final int id;
 
