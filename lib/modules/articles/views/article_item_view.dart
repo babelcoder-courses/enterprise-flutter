@@ -22,7 +22,7 @@ class ArticleItemView extends StatelessWidget {
         image: article.image,
         width: 75,
       ),
-      onTap: () => context.router.pushNamed('/articles/${article.id}'),
+      onTap: () => context.router.navigateNamed('/articles/${article.id}'),
     );
   }
 }
