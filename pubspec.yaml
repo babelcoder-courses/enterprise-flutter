@@ -43,6 +43,8 @@ dependencies:
   flutter_dotenv: ^5.0.2
   transparent_image: ^2.0.0
   google_fonts: ^2.1.1
+  provider: ^6.0.1
+  flutter_settings_ui: ^2.0.1
 
 dev_dependencies:
   flutter_test:
