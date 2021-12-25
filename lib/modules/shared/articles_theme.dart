@@ -62,17 +62,17 @@ class ArticlesTheme {
       color: Colors.white,
     ),
     caption: GoogleFonts.openSans(
-      fontSize: 16.0,
+      fontSize: 12.0,
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
     subtitle1: GoogleFonts.openSans(
-      fontSize: 20.0,
+      fontSize: 16.0,
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
     subtitle2: GoogleFonts.openSans(
-      fontSize: 18.0,
+      fontSize: 14.0,
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),

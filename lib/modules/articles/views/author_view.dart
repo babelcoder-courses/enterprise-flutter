@@ -31,11 +31,9 @@ class AuthorView extends StatelessWidget {
                   children: [
                     Text(
                       author.name,
-                      style: ArticlesTheme.dark().textTheme.caption,
                     ),
-                    Text(
+                    const Text(
                       'Creator of this article',
-                      style: ArticlesTheme.dark().textTheme.bodyText1,
                     ),
                   ],
                 ),
