@@ -26,10 +26,6 @@ import 'package:enterprise_flutter/modules/home/screens/base_screen.dart';
             initial: true,
           ),
           AutoRoute(
-            path: 'favorite',
-            page: FavoriteArticlesScreen,
-          ),
-          AutoRoute(
             path: ':id',
             page: ArticleDetailsScreen,
           ),
@@ -37,7 +33,18 @@ import 'package:enterprise_flutter/modules/home/screens/base_screen.dart';
       ),
       AutoRoute(
         path: 'settings',
-        page: SettingsScreen,
+        name: 'SettingsRoutes',
+        page: EmptyRouterPage,
+        children: [
+          AutoRoute(
+            path: '',
+            page: SettingsScreen,
+          ),
+          AutoRoute(
+            path: 'favorite-articles',
+            page: FavoriteArticlesScreen,
+          ),
+        ],
       ),
     ],
   ),

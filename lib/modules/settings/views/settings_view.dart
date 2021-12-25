@@ -30,8 +30,8 @@ class SettingsView extends StatelessWidget {
                 SettingsTile(
                   title: 'Favorite Articles',
                   leading: const Icon(Icons.favorite),
-                  onPressed: (context) =>
-                      context.router.navigateNamed('/articles'),
+                  onPressed: (context) => context.router
+                      .navigateNamed('/settings/favorite-articles'),
                 ),
               ],
             ),

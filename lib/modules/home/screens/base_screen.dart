@@ -21,7 +21,7 @@ class BaseScreen extends StatelessWidget {
       routes: const [
         ExploreRoute(),
         ArticlesRoutes(),
-        SettingsRoute(),
+        SettingsRoutes(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         return SafeArea(

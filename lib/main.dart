@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:enterprise_flutter/modules/articles/models/favorite_article.dart';
 import 'package:enterprise_flutter/modules/settings/providers/settings_provider.dart';
 import 'package:enterprise_flutter/routes/router.gr.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +7,12 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
+  Hive.registerAdapter(FavoriteArticleAdapter());
+
   await dotenv.load(fileName: ".env");
   await Hive.initFlutter();
   await Hive.openBox('settings');
+  await Hive.openBox<FavoriteArticle>('favorite_articles');
 
   runApp(
     MultiProvider(
