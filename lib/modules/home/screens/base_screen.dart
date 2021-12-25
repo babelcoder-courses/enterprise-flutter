@@ -13,6 +13,7 @@ class BaseScreen extends StatelessWidget {
         return AppBar(
           title: const Text('Articles App'),
           leading: const AutoBackButton(),
+          centerTitle: true,
         );
       },
       routes: const [

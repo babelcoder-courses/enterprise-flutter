@@ -14,19 +14,21 @@ class ArticleDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<ArticleItem>(
-      future: _api.getArticle(id),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          final article = snapshot.data!;
+    return Scaffold(
+      body: FutureBuilder<ArticleItem>(
+        future: _api.getArticle(id),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            final article = snapshot.data!;
 
-          return ArticleDetailsView(article: article);
-        }
+            return ArticleDetailsView(article: article);
+          }
 
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
     );
   }
 }
