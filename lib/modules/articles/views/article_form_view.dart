@@ -1,3 +1,4 @@
+import 'package:enterprise_flutter/modules/articles/models/article_item.dart';
 import 'package:enterprise_flutter/modules/categories/category_api.dart';
 import 'package:enterprise_flutter/modules/categories/models/category_item.dart';
 import 'package:flutter/material.dart';
@@ -8,11 +9,15 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 class ArticleFormView extends StatelessWidget {
   final String submitText;
   final Function(Map<String, dynamic>) onSubmitted;
+  final ArticleItem? initialValues;
   final _categoryApi = CategoryApi();
 
-  ArticleFormView(
-      {Key? key, required this.submitText, required this.onSubmitted})
-      : super(key: key);
+  ArticleFormView({
+    Key? key,
+    required this.submitText,
+    required this.onSubmitted,
+    this.initialValues,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +37,8 @@ class ArticleFormView extends StatelessWidget {
                 children: [
                   FormBuilderImagePicker(
                     name: 'image',
+                    initialValue:
+                        initialValues == null ? [] : [initialValues?.image],
                     decoration: const InputDecoration(labelText: 'Pick Image'),
                     maxImages: 1,
                   ),
@@ -40,6 +47,7 @@ class ArticleFormView extends StatelessWidget {
                   ),
                   FormBuilderTextField(
                     name: 'title',
+                    initialValue: initialValues?.title,
                     decoration: const InputDecoration(
                       labelText: 'Title',
                     ),
@@ -57,6 +65,7 @@ class ArticleFormView extends StatelessWidget {
                     builder: (context, snapshot) {
                       return FormBuilderDropdown(
                         name: 'categoryId',
+                        initialValue: initialValues?.categoryId,
                         decoration: const InputDecoration(
                           labelText: 'Category',
                         ),
@@ -85,6 +94,7 @@ class ArticleFormView extends StatelessWidget {
                   ),
                   FormBuilderTextField(
                     name: 'excerpt',
+                    initialValue: initialValues?.excerpt,
                     maxLines: 2,
                     decoration: const InputDecoration(
                       labelText: 'Excerpt',
@@ -100,6 +110,7 @@ class ArticleFormView extends StatelessWidget {
                   ),
                   FormBuilderTextField(
                     name: 'body',
+                    initialValue: initialValues?.body,
                     minLines: 5,
                     maxLines: 10,
                     decoration: const InputDecoration(

@@ -16,7 +16,7 @@ class ArticleApi extends BaseApi {
     return ArticleItem.fromJson(response.data['article']);
   }
 
-  createArticle(Map<String, dynamic> data) async {
+  Future<void> createArticle(Map<String, dynamic> data) async {
     final imagePath = data['image'][0].path;
 
     final formData = FormData.fromMap({
@@ -31,5 +31,31 @@ class ArticleApi extends BaseApi {
     });
 
     await api.post('/articles', data: formData);
+  }
+
+  Future<ArticleItem> updateArticle(int id, Map<String, dynamic> data) async {
+    final image = data['image'][0];
+    final mapData = {
+      'title': data['title'],
+      'body': data['body'],
+      'excerpt': data['excerpt'],
+      'categoryId': data['categoryId'],
+    };
+
+    if (image is! String) {
+      mapData['image'] = await MultipartFile.fromFile(
+        image.path,
+        filename: image.path.split('/').last,
+      );
+    }
+
+    final formData = FormData.fromMap(mapData);
+    final response = await api.patch('/articles/$id', data: formData);
+
+    return ArticleItem.fromJson(response.data['article']);
+  }
+
+  Future<void> deleteArticle(int id) async {
+    await api.delete('/articles/$id');
   }
 }

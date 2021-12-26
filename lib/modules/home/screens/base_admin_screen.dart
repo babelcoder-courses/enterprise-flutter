@@ -19,10 +19,18 @@ class BaseAdminScreen extends StatelessWidget {
               title: const Text('Articles'),
               leading: const Icon(Icons.article),
               onTap: () {
-                context.router.replace(const AdminArticleListRoute());
+                context.router.replace(const AdminArticlesRoutes());
                 context.router.pop();
               },
-            )
+            ),
+            ListTile(
+              title: const Text('Users'),
+              leading: const Icon(Icons.person),
+              onTap: () {
+                context.router.replace(const AdminUsersRoutes());
+                context.router.pop();
+              },
+            ),
           ],
         ),
       ),

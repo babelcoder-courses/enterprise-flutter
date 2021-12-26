@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:enterprise_flutter/modules/auth/views/auth_menu_view.dart';
 import 'package:enterprise_flutter/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -15,13 +16,8 @@ class BaseScreen extends StatelessWidget {
             'Articles App',
           ),
           leading: const AutoBackButton(),
-          actions: [
-            IconButton(
-              // onPressed: () => context.router.navigateNamed('/auth'),
-              onPressed: () =>
-                  context.router.navigateNamed('/admin/articles/new'),
-              icon: const Icon(Icons.person),
-            ),
+          actions: const [
+            AuthMenuView(),
           ],
           centerTitle: true,
         );

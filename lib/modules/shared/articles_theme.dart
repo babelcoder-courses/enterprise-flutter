@@ -148,6 +148,12 @@ class ArticlesTheme {
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         selectedItemColor: Colors.green,
       ),
+      snackBarTheme: const SnackBarThemeData(
+        backgroundColor: Colors.black,
+        contentTextStyle: TextStyle(
+          color: Colors.white,
+        ),
+      ),
       textTheme: darkTextTheme,
     );
   }

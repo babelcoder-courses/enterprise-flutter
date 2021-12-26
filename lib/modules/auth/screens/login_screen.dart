@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dio/dio.dart';
 import 'package:enterprise_flutter/modules/auth/auth_api.dart';
+import 'package:enterprise_flutter/modules/auth/providers/auth_provider.dart';
 import 'package:enterprise_flutter/modules/auth/views/auth_form_view.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   final _authApi = AuthApi();
@@ -22,7 +24,9 @@ class LoginScreen extends StatelessWidget {
         alternateLink: '/auth/register',
         onSubmitted: (value) async {
           try {
-            await _authApi.login(value);
+            final token = await _authApi.login(value);
+
+            context.read<AuthProvider>().setToken(token);
             context.router.navigateBack();
           } on DioError catch (e) {
             if (e.response != null && e.response!.statusCode == 401) {
