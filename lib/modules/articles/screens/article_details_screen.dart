@@ -18,7 +18,7 @@ class ArticleDetailsScreen extends StatelessWidget {
       body: FutureBuilder<ArticleItem>(
         future: _api.getArticle(id),
         builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.hasData) {
             final article = snapshot.data!;
 
             return ArticleDetailsView(article: article);
