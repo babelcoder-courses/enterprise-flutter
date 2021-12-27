@@ -1,14 +1,21 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:enterprise_flutter/modules/auth/views/auth_menu_view.dart';
+import 'package:enterprise_flutter/modules/home/views/introduction_view.dart';
+import 'package:enterprise_flutter/modules/settings/providers/settings_provider.dart';
 import 'package:enterprise_flutter/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:provider/provider.dart';
 
 class BaseScreen extends StatelessWidget {
   const BaseScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final intro = context.watch<SettingsProvider>().intro;
+
+    if (!intro) return const IntroductionView();
+
     return AutoTabsScaffold(
       appBarBuilder: (context, tabsRouter) {
         return AppBar(

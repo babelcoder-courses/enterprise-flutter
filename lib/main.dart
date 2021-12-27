@@ -43,7 +43,6 @@ void main() async {
 Future<void> openAuthBox() async {
   const FlutterSecureStorage secureStorage = FlutterSecureStorage();
   final authKey = dotenv.env['AUTH_BOX_KEY']!;
-
   final containsEncryptionKey = await secureStorage.read(key: authKey);
 
   if (containsEncryptionKey == null) {

@@ -183,6 +183,11 @@ class AppRouter extends _i2.RootStackRouter {
               ])
         ]),
         _i2.RouteConfig(BaseRoute.name, path: '/', children: [
+          _i2.RouteConfig('#redirect',
+              path: '',
+              parent: BaseRoute.name,
+              redirectTo: 'explore',
+              fullMatch: true),
           _i2.RouteConfig(ExploreRoute.name,
               path: 'explore', parent: BaseRoute.name),
           _i2.RouteConfig(ArticlesRoutes.name,

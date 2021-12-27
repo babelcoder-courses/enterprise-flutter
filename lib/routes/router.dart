@@ -87,6 +87,7 @@ import 'package:enterprise_flutter/modules/users/screens/admin_user_list_screen.
       AutoRoute(
         path: 'explore',
         page: ExploreScreen,
+        initial: true,
       ),
       AutoRoute(
         path: 'articles',

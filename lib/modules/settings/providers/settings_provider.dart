@@ -12,12 +12,24 @@ class SettingsProvider extends ChangeNotifier {
     );
   }
 
+  bool get intro {
+    return _settings.get(
+      'intro',
+      defaultValue: false,
+    );
+  }
+
   ThemeData get theme {
     return darkMode ? ArticlesTheme.dark() : ArticlesTheme.light();
   }
 
   set darkMode(bool mode) {
     _settings.put('darkMode', mode);
+    notifyListeners();
+  }
+
+  set intro(bool intro) {
+    _settings.put('intro', intro);
     notifyListeners();
   }
 }
