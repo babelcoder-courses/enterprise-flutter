@@ -21,6 +21,8 @@ class AuthProvider extends ChangeNotifier {
   }
 
   Future<void> init() async {
+    if (token == null) return;
+
     BaseApi.dio.options.headers['Authorization'] = 'Bearer $token';
     _profile = await _authApi.getProfile();
     notifyListeners();
