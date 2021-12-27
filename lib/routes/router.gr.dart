@@ -23,7 +23,7 @@ import '../modules/auth/guards/auth_guard.dart' as _i17;
 import '../modules/auth/screens/login_screen.dart' as _i5;
 import '../modules/auth/screens/profile_screen.dart' as _i1;
 import '../modules/auth/screens/register_screen.dart' as _i6;
-import '../modules/explore/screens/explore.dart' as _i11;
+import '../modules/explore/screens/explore_screen.dart' as _i11;
 import '../modules/home/screens/base_admin_screen.dart' as _i3;
 import '../modules/home/screens/base_screen.dart' as _i4;
 import '../modules/settings/screens/settings_screen.dart' as _i14;

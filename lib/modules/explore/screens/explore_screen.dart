@@ -1,3 +1,4 @@
+import 'package:enterprise_flutter/modules/explore/views/explore_map_view.dart';
 import 'package:flutter/material.dart';
 
 class ExploreScreen extends StatelessWidget {
@@ -5,13 +6,6 @@ class ExploreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Explore'),
-      ),
-      body: const Center(
-        child: Text('Explore'),
-      ),
-    );
+    return const ExploreMapView();
   }
 }

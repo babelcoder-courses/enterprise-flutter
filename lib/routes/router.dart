@@ -11,7 +11,7 @@ import 'package:enterprise_flutter/modules/auth/guards/auth_guard.dart';
 import 'package:enterprise_flutter/modules/auth/screens/login_screen.dart';
 import 'package:enterprise_flutter/modules/auth/screens/profile_screen.dart';
 import 'package:enterprise_flutter/modules/auth/screens/register_screen.dart';
-import 'package:enterprise_flutter/modules/explore/screens/explore.dart';
+import 'package:enterprise_flutter/modules/explore/screens/explore_screen.dart';
 import 'package:enterprise_flutter/modules/home/screens/base_admin_screen.dart';
 import 'package:enterprise_flutter/modules/settings/screens/settings_screen.dart';
 import 'package:enterprise_flutter/modules/home/screens/base_screen.dart';
