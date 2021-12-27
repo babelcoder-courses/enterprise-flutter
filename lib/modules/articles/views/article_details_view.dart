@@ -1,5 +1,6 @@
 import 'package:enterprise_flutter/modules/articles/models/article_item.dart';
 import 'package:enterprise_flutter/modules/articles/models/favorite_article.dart';
+import 'package:enterprise_flutter/modules/articles/views/article_qr_view.dart';
 import 'package:enterprise_flutter/modules/articles/views/author_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -85,6 +86,12 @@ class ArticleDetailsView extends StatelessWidget {
                 ),
                 AuthorView(
                   author: article.user,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                ArticleQrView(
+                  article: article,
                 ),
               ],
             ),
